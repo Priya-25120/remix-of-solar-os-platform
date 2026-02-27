@@ -1,15 +1,18 @@
 import { Users, FolderKanban, MessageSquare, CheckSquare, Link, BarChart3 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
-  { icon: Users, title: "Lead Management", description: "Capture, track, and convert solar leads with an intelligent pipeline built for solar sales teams." },
-  { icon: FolderKanban, title: "Project Tracking", description: "Monitor every installation from site survey to final inspection with real-time project boards." },
-  { icon: MessageSquare, title: "Team Collaboration", description: "Keep your crews, designers, and office staff aligned with built-in chat and file sharing." },
-  { icon: CheckSquare, title: "Task Management", description: "Assign, prioritize, and track tasks across all your solar projects in one unified view." },
-  { icon: Link, title: "CRM Integration", description: "Connect with your existing tools — sync contacts, deals, and customer data seamlessly." },
-  { icon: BarChart3, title: "Analytics Dashboard", description: "Get real-time insights into sales performance, project timelines, and team productivity." },
+  { icon: Users, title: "Lead Management", description: "Capture, track, and convert solar leads with an intelligent pipeline built for solar sales teams.", route: "/leads" },
+  { icon: FolderKanban, title: "Project Tracking", description: "Monitor every installation from site survey to final inspection with real-time project boards.", route: "/projects" },
+  { icon: MessageSquare, title: "Team Collaboration", description: "Keep your crews, designers, and office staff aligned with built-in chat and file sharing.", route: "/support" },
+  { icon: CheckSquare, title: "Task Management", description: "Assign, prioritize, and track tasks across all your solar projects in one unified view.", route: "/tasks" },
+  { icon: Link, title: "CRM Integration", description: "Connect with your existing tools — sync contacts, deals, and customer data seamlessly.", route: "/customers" },
+  { icon: BarChart3, title: "Analytics Dashboard", description: "Get real-time insights into sales performance, project timelines, and team productivity.", route: "/reports" },
 ];
 
 const FeaturesSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="features" className="section-padding" style={{ background: "hsl(226, 44%, 98%)" }}>
       <div className="container mx-auto">
@@ -27,7 +30,11 @@ const FeaturesSection = () => {
           {features.map((f, i) => (
             <div
               key={f.title}
-              className="group relative rounded-xl border border-border bg-card p-6 card-clickup hover:border-primary/25 cursor-default"
+              onClick={() => navigate(f.route)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && navigate(f.route)}
+              className="group relative rounded-xl border border-border bg-card p-6 card-clickup hover:border-primary/25 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-primary/40"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="h-12 w-12 rounded-lg gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -35,6 +42,9 @@ const FeaturesSection = () => {
               </div>
               <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
+              <span className="absolute bottom-4 right-5 text-xs font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                Open module →
+              </span>
             </div>
           ))}
         </div>
