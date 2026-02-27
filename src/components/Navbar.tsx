@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import ModulesDropdown from "./ModulesDropdown";
 
 const navItems = [
   { label: "Home", target: "home" },
   { label: "Features", target: "features" },
-  { label: "Solutions", target: "solutions" },
   { label: "Pricing", target: "pricing" },
   { label: "Resources", target: "resources" },
   { label: "Contact", target: "contact" },
@@ -43,12 +43,22 @@ const Navbar = () => {
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+        <nav className="hidden md:flex items-center gap-1">
+          {navItems.slice(0, 2).map((item) => (
             <button
               key={item.label}
               onClick={() => handleNav(item.target)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors px-3 py-1.5 rounded-lg"
+            >
+              {item.label}
+            </button>
+          ))}
+          <ModulesDropdown />
+          {navItems.slice(2).map((item) => (
+            <button
+              key={item.label}
+              onClick={() => handleNav(item.target)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors px-3 py-1.5 rounded-lg"
             >
               {item.label}
             </button>
