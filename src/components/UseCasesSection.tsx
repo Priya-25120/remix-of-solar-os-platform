@@ -9,7 +9,7 @@ const useCases = [
 
 const UseCasesSection = () => {
   return (
-    <section id="solutions" className="section-padding">
+    <section id="solutions" className="section-padding bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Solutions</p>
@@ -25,9 +25,9 @@ const UseCasesSection = () => {
           {useCases.map((uc) => (
             <div
               key={uc.title}
-              className="group rounded-xl border border-border bg-card p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group rounded-xl border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-primary/20"
             >
-              <div className="h-14 w-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
+              <div className="h-14 w-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <uc.icon size={28} className="text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{uc.title}</h3>
