@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -22,6 +23,8 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="section-padding bg-muted/30">
       <div className="container mx-auto">
@@ -36,7 +39,8 @@ const TestimonialsSection = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-xl border border-border bg-card p-6 flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              onClick={() => navigate("/customers")}
+              className="rounded-xl border border-border bg-card p-6 flex flex-col transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-1 hover:border-primary/20"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, i) => (

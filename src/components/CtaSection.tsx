@@ -21,7 +21,7 @@ const CtaSection = () => {
               <Button
                 size="lg"
                 className="bg-background text-foreground hover:bg-background/90 text-base px-8 rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/register")}
               >
                 Get Started Free <ArrowRight className="ml-2" size={18} />
               </Button>
