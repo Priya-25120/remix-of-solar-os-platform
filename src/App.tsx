@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import PricingPage from "./pages/PricingPage";
+import ModulePage from "./pages/ModulePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,13 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<PricingPage />} />
+          {/* CRM Module Pages */}
+          <Route path="/leads" element={<ModulePage module="leads" />} />
+          <Route path="/projects" element={<ModulePage module="projects" />} />
+          <Route path="/support" element={<ModulePage module="support" />} />
+          <Route path="/tasks" element={<ModulePage module="tasks" />} />
+          <Route path="/customers" element={<ModulePage module="customers" />} />
+          <Route path="/reports" element={<ModulePage module="reports" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
