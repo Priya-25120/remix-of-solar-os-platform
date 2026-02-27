@@ -188,10 +188,11 @@ const ModulesDropdown = () => {
           {/* Backdrop */}
           <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
 
-          {/* Mega menu */}
+          {/* Mega menu — fixed to viewport, centered */}
           <div
-            className="absolute top-full left-1/2 z-50 mt-3 w-[900px] max-h-[80vh] overflow-y-auto rounded-2xl border border-border/60 bg-background shadow-2xl"
+            className="fixed left-1/2 z-50 mt-3 w-[95vw] max-w-[960px] max-h-[80vh] overflow-y-auto rounded-2xl border border-border/60 bg-background shadow-2xl"
             style={{
+              top: "64px",
               transform: "translateX(-50%)",
               animation: "mega-menu-in 0.2s cubic-bezier(0.16,1,0.3,1) forwards",
             }}
