@@ -1,13 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import { Wrench, TrendingUp, Building2, ClipboardList } from "lucide-react";
 
 const useCases = [
-  { icon: Wrench, title: "Solar Installers", description: "Schedule crews, track equipment, and manage installation workflows from start to finish." },
-  { icon: TrendingUp, title: "Solar Sales Teams", description: "Close more deals with pipeline management, proposal tools, and automated follow-ups." },
-  { icon: Building2, title: "Solar Companies", description: "Get a bird's eye view of your entire operation — from lead gen to post-install support." },
-  { icon: ClipboardList, title: "Project Managers", description: "Keep every project on track with Gantt charts, milestones, and resource allocation." },
+  { icon: Wrench, title: "Solar Installers", description: "Schedule crews, track equipment, and manage installation workflows from start to finish.", route: "/projects" },
+  { icon: TrendingUp, title: "Solar Sales Teams", description: "Close more deals with pipeline management, proposal tools, and automated follow-ups.", route: "/leads" },
+  { icon: Building2, title: "Solar Companies", description: "Get a bird's eye view of your entire operation — from lead gen to post-install support.", route: "/reports" },
+  { icon: ClipboardList, title: "Project Managers", description: "Keep every project on track with Gantt charts, milestones, and resource allocation.", route: "/tasks" },
 ];
 
 const UseCasesSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="solutions" className="section-padding bg-background">
       <div className="container mx-auto">
@@ -25,7 +28,8 @@ const UseCasesSection = () => {
           {useCases.map((uc) => (
             <div
               key={uc.title}
-              className="group rounded-xl border border-border bg-card p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-primary/20"
+              onClick={() => navigate(uc.route)}
+              className="group rounded-xl border border-border bg-card p-6 text-center transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-2 hover:border-primary/20"
             >
               <div className="h-14 w-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <uc.icon size={28} className="text-primary-foreground" />

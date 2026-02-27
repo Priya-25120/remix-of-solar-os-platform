@@ -75,7 +75,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button
-                onClick={() => plan.name === "Enterprise" ? navigate("/contact") : navigate("/signup")}
+                onClick={() => plan.name === "Enterprise" ? navigate("/contact") : navigate("/register")}
                 className={
                   plan.highlighted
                     ? "btn-clickup border-0 text-primary-foreground w-full rounded-full"

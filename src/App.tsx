@@ -23,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/register" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<PricingPage />} />
           {/* CRM Module Pages */}
