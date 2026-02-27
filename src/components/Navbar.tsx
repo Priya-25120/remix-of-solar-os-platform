@@ -4,12 +4,55 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Package, ChevronDown, LayoutDashboard, Users, TrendingUp, RefreshCw, Receipt, FileText, Briefcase, CheckSquare, HeadphonesIcon, UserPlus, BookOpen, Wrench, UserCog, Factory, BarChart3, Settings, Shield, Search } from "lucide-react";
 import ModulesDropdown from "./ModulesDropdown";
 
-const mobileModules = [
-  { heading: "Core", items: ["Dashboard", "Customers", "Sales", "Subscriptions", "Expenses", "Contracts"] },
-  { heading: "Finance", items: ["Accounting"] },
-  { heading: "Work", items: ["Projects", "Tasks", "Support", "Leads", "Estimate Requests", "Knowledge Base", "Utilities"] },
-  { heading: "People & Ops", items: ["HRM", "Production"] },
-  { heading: "Insights & Admin", items: ["Reports", "Setup", "Quality Control", "SEO Optimization"] },
+type MobileModuleItem = { label: string; icon: React.ElementType; color: string };
+type MobileModuleGroup = { heading: string; items: MobileModuleItem[] };
+
+const mobileModules: MobileModuleGroup[] = [
+  {
+    heading: "Core",
+    items: [
+      { label: "Dashboard", icon: LayoutDashboard, color: "text-purple-500" },
+      { label: "Customers", icon: Users, color: "text-blue-500" },
+      { label: "Sales", icon: TrendingUp, color: "text-green-500" },
+      { label: "Subscriptions", icon: RefreshCw, color: "text-cyan-500" },
+      { label: "Expenses", icon: Receipt, color: "text-orange-500" },
+      { label: "Contracts", icon: FileText, color: "text-pink-500" },
+    ],
+  },
+  {
+    heading: "Finance",
+    items: [
+      { label: "Accounting", icon: BarChart3, color: "text-indigo-500" },
+    ],
+  },
+  {
+    heading: "Work",
+    items: [
+      { label: "Projects", icon: Briefcase, color: "text-violet-500" },
+      { label: "Tasks", icon: CheckSquare, color: "text-emerald-500" },
+      { label: "Support", icon: HeadphonesIcon, color: "text-red-500" },
+      { label: "Leads", icon: UserPlus, color: "text-amber-500" },
+      { label: "Estimate Requests", icon: FileText, color: "text-teal-500" },
+      { label: "Knowledge Base", icon: BookOpen, color: "text-blue-400" },
+      { label: "Utilities", icon: Wrench, color: "text-slate-500" },
+    ],
+  },
+  {
+    heading: "People & Ops",
+    items: [
+      { label: "HRM", icon: UserCog, color: "text-fuchsia-500" },
+      { label: "Production", icon: Factory, color: "text-yellow-500" },
+    ],
+  },
+  {
+    heading: "Insights & Admin",
+    items: [
+      { label: "Reports", icon: BarChart3, color: "text-purple-400" },
+      { label: "Setup", icon: Settings, color: "text-gray-500" },
+      { label: "Quality Control", icon: Shield, color: "text-rose-500" },
+      { label: "SEO Optimization", icon: Search, color: "text-lime-500" },
+    ],
+  },
 ];
 
 const MobileModulesAccordion = () => {
@@ -51,16 +94,21 @@ const MobileModulesAccordion = () => {
                 />
               </button>
               {expandedGroup === group.heading && (
-                <div className="px-4 pb-2 flex flex-col gap-0.5">
-                  {group.items.map((item) => (
-                    <button
-                      key={item}
-                      className="text-left text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 px-2 py-1.5 rounded-md transition-colors flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0" />
-                      {item}
-                    </button>
-                  ))}
+                <div className="px-3 pb-2 flex flex-col gap-0.5">
+                  {group.items.map((mod) => {
+                    const Icon = mod.icon;
+                    return (
+                      <button
+                        key={mod.label}
+                        className="text-left text-xs text-foreground hover:bg-muted/60 px-2 py-1.5 rounded-lg transition-colors flex items-center gap-2.5 group"
+                      >
+                        <span className={`shrink-0 p-1 rounded-md bg-muted/80 group-hover:bg-background transition-colors ${mod.color}`}>
+                          <Icon size={13} />
+                        </span>
+                        <span className="font-medium">{mod.label}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
