@@ -1,31 +1,57 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import dashboardImg from "@/assets/dashboard-hero.png";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-8 overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(250,30%,97%) 0%, hsl(0,0%,100%) 100%)" }}>
+    <section id="home" className="pt-28 pb-20 md:pt-40 md:pb-32 px-4 md:px-8 overflow-hidden bg-background">
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-medium text-muted-foreground mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-xs font-medium text-muted-foreground mb-6">
               <span className="h-2 w-2 rounded-full gradient-bg" />
               Now in Beta — Try it Free
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
-              The Everything App for{" "}
-              <span className="gradient-text">Solar Companies</span>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-6">
+              Software to<br />
+              replace all <span className="gradient-text">solar tools</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Manage leads, projects, installations, teams, and customers in one powerful platform.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" className="gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity text-base px-8">
-                Get Started Free <ArrowRight className="ml-2" size={18} />
+
+            <div className="space-y-2.5 mb-8">
+              {[
+                { bold: "Save money.", text: "All Apps, CRM, Projects + 20 more." },
+                { bold: "Save time.", text: "All teams working together with perfect context." },
+                { bold: "Scale faster.", text: "AI Agents & Automation built-in." },
+              ].map((item) => (
+                <div key={item.bold} className="flex items-start gap-2.5">
+                  <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    <span className="font-semibold text-foreground">{item.bold}</span> {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start gap-3">
+              <Button
+                size="lg"
+                className="gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity text-base px-8 rounded-lg h-12"
+                onClick={() => navigate("/signup")}
+              >
+                Get started. It's FREE! <ArrowRight className="ml-2" size={18} />
               </Button>
-              <Button size="lg" variant="outline" className="text-base px-8">
-                <Play size={18} className="mr-2" /> Book Demo
-              </Button>
+              <p className="text-xs text-muted-foreground mt-2 sm:mt-3">Free forever.<br />No credit card.</p>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+              {["Lead Mgmt", "Projects", "CRM", "AI Agents", "Scheduling", "Analytics", "Docs", "Automations"].map((tag) => (
+                <span key={tag} className="text-xs font-medium border border-border rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors cursor-default">
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
 
@@ -35,7 +61,7 @@ const HeroSection = () => {
               <img
                 src={dashboardImg}
                 alt="Solar OS Dashboard showing project management, analytics, and team collaboration"
-                className="relative rounded-xl shadow-2xl border border-border/50 w-full animate-float"
+                className="relative rounded-xl shadow-2xl border border-border/50 w-full"
               />
             </div>
           </div>

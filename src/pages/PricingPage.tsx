@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ArrowLeft } from "lucide-react";
 
 const plans = [
   {
@@ -29,27 +29,32 @@ const plans = [
   },
 ];
 
-const PricingSection = () => {
+const PricingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="pricing" className="section-padding bg-background">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-background">
+      <header className="border-b border-border/50 bg-background/80 backdrop-blur-lg sticky top-0 z-50">
+        <div className="container mx-auto flex items-center justify-between h-16 px-4 md:px-8">
+          <Link to="/" className="text-xl font-bold gradient-text tracking-tight">Solar OS</Link>
+          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+            <ArrowLeft size={14} /> Back to Home
+          </Link>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 md:px-8 py-16 md:py-24">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Pricing</p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Start free. Upgrade when you're ready. No hidden fees.
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Simple, Transparent Pricing</h1>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Start free. Upgrade when you're ready. No hidden fees.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-xl border p-8 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
+              className={`rounded-xl border p-8 flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
                 plan.highlighted
                   ? "gradient-border bg-card shadow-xl relative"
                   : "border-border bg-card"
@@ -78,8 +83,8 @@ const PricingSection = () => {
                 onClick={() => plan.name === "Enterprise" ? navigate("/contact") : navigate("/signup")}
                 className={
                   plan.highlighted
-                    ? "gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity w-full rounded-lg"
-                    : "w-full rounded-lg"
+                    ? "gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity w-full"
+                    : "w-full"
                 }
                 variant={plan.highlighted ? "default" : "outline"}
               >
@@ -88,9 +93,9 @@ const PricingSection = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </main>
+    </div>
   );
 };
 
-export default PricingSection;
+export default PricingPage;

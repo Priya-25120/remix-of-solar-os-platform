@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, Clock } from "lucide-react";
 
 const ProductivitySection = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="section-padding gradient-bg-subtle">
+    <section className="section-padding bg-muted/30">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: visual */}
@@ -47,7 +50,11 @@ const ProductivitySection = () => {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity">
+            <Button
+              size="lg"
+              className="gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity rounded-lg"
+              onClick={() => navigate("/signup")}
+            >
               Get Started <ArrowRight className="ml-2" size={18} />
             </Button>
           </div>

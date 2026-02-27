@@ -23,7 +23,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-padding gradient-bg-subtle">
+    <section className="section-padding bg-muted/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Testimonials</p>
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="rounded-xl border border-border bg-card p-6 flex flex-col"
+              className="rounded-xl border border-border bg-card p-6 flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, i) => (

@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const CtaSection = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="section-padding">
+    <section id="resources" className="section-padding">
       <div className="container mx-auto">
         <div className="rounded-2xl gradient-bg p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, white 0%, transparent 50%), radial-gradient(circle at 70% 50%, white 0%, transparent 50%)" }} />
@@ -14,12 +17,23 @@ const CtaSection = () => {
             <p className="text-primary-foreground/80 text-lg mb-8 max-w-xl mx-auto">
               Join thousands of solar companies already using Solar OS to grow faster.
             </p>
-            <Button
-              size="lg"
-              className="bg-background text-foreground hover:bg-background/90 text-base px-8"
-            >
-              Get Started Free <ArrowRight className="ml-2" size={18} />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button
+                size="lg"
+                className="bg-background text-foreground hover:bg-background/90 text-base px-8 rounded-lg"
+                onClick={() => navigate("/signup")}
+              >
+                Get Started Free <ArrowRight className="ml-2" size={18} />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-base px-8 rounded-lg"
+                onClick={() => navigate("/contact")}
+              >
+                Book a Demo
+              </Button>
+            </div>
           </div>
         </div>
       </div>
