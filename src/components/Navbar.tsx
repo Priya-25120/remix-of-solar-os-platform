@@ -1,8 +1,75 @@
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Package, ChevronDown, LayoutDashboard, Users, TrendingUp, RefreshCw, Receipt, FileText, Briefcase, CheckSquare, HeadphonesIcon, UserPlus, BookOpen, Wrench, UserCog, Factory, BarChart3, Settings, Shield, Search } from "lucide-react";
 import ModulesDropdown from "./ModulesDropdown";
+
+const mobileModules = [
+  { heading: "Core", items: ["Dashboard", "Customers", "Sales", "Subscriptions", "Expenses", "Contracts"] },
+  { heading: "Finance", items: ["Accounting"] },
+  { heading: "Work", items: ["Projects", "Tasks", "Support", "Leads", "Estimate Requests", "Knowledge Base", "Utilities"] },
+  { heading: "People & Ops", items: ["HRM", "Production"] },
+  { heading: "Insights & Admin", items: ["Reports", "Setup", "Quality Control", "SEO Optimization"] },
+];
+
+const MobileModulesAccordion = () => {
+  const [open, setOpen] = useState(false);
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
+
+  return (
+    <div className="border border-border/50 rounded-lg overflow-hidden">
+      {/* Modules toggle button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          <Package size={15} className="text-primary/70" />
+          Modules
+        </div>
+        <ChevronDown
+          size={14}
+          className="transition-transform duration-200"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+        />
+      </button>
+
+      {/* Module groups */}
+      {open && (
+        <div className="border-t border-border/50 bg-muted/20">
+          {mobileModules.map((group) => (
+            <div key={group.heading} className="border-b border-border/30 last:border-0">
+              <button
+                onClick={() => setExpandedGroup(expandedGroup === group.heading ? null : group.heading)}
+                className="w-full flex items-center justify-between px-4 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/70 hover:bg-muted/40 transition-colors"
+              >
+                {group.heading}
+                <ChevronDown
+                  size={11}
+                  className="transition-transform duration-200"
+                  style={{ transform: expandedGroup === group.heading ? "rotate(180deg)" : "rotate(0deg)" }}
+                />
+              </button>
+              {expandedGroup === group.heading && (
+                <div className="px-4 pb-2 flex flex-col gap-0.5">
+                  {group.items.map((item) => (
+                    <button
+                      key={item}
+                      className="text-left text-xs text-muted-foreground hover:text-foreground hover:bg-muted/50 px-2 py-1.5 rounded-md transition-colors flex items-center gap-2"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/40 shrink-0" />
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const navItems = [
   { label: "Home", target: "home" },
@@ -91,19 +158,22 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4 animate-fade-in">
-          <nav className="flex flex-col gap-3 mb-4">
+        <div className="md:hidden bg-background border-b border-border px-4 pb-4 animate-fade-in max-h-[80vh] overflow-y-auto">
+          <nav className="flex flex-col gap-1 mb-3">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => handleNav(item.target)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1 text-left"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 text-left px-2 rounded-lg hover:bg-muted/50"
               >
                 {item.label}
               </button>
             ))}
+
+            {/* Mobile Modules Accordion */}
+            <MobileModulesAccordion />
           </nav>
-          <div className="flex gap-3">
+          <div className="flex gap-3 mt-2">
             <Button variant="outline" size="sm" className="flex-1 rounded-full" onClick={() => { setMobileOpen(false); navigate("/login"); }}>Login</Button>
             <Button size="sm" className="flex-1 rounded-full gradient-bg border-0 text-primary-foreground" onClick={() => { setMobileOpen(false); navigate("/signup"); }}>Sign Up</Button>
           </div>
