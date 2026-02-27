@@ -33,6 +33,9 @@ const App = () => (
           <Route path="/tasks" element={<ModulePage module="tasks" />} />
           <Route path="/customers" element={<ModulePage module="customers" />} />
           <Route path="/reports" element={<ModulePage module="reports" />} />
+          <Route path="/knowledge-base" element={<ModulePage module="knowledge-base" />} />
+          <Route path="/utilities" element={<ModulePage module="utilities" />} />
+          <Route path="/dashboard" element={<ModulePage module="dashboard" />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
