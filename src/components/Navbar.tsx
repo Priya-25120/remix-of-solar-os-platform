@@ -36,19 +36,19 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border/60" style={{ boxShadow: "0 1px 0 0 hsl(248 79% 67% / 0.06), 0 2px 12px -2px hsl(248 79% 67% / 0.08)" }}>
       <div className="container mx-auto flex items-center justify-between h-16 px-4 md:px-8">
         <button onClick={() => handleNav("home")} className="text-xl font-bold gradient-text tracking-tight">
           Solar OS
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-0.5">
           {navItems.slice(0, 2).map((item) => (
             <button
               key={item.label}
               onClick={() => handleNav(item.target)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors px-3 py-1.5 rounded-lg"
+              className="nav-item-clickup text-sm font-medium text-muted-foreground px-3 py-1.5 rounded-lg"
             >
               {item.label}
             </button>
@@ -58,7 +58,7 @@ const Navbar = () => {
             <button
               key={item.label}
               onClick={() => handleNav(item.target)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors px-3 py-1.5 rounded-lg"
+              className="nav-item-clickup text-sm font-medium text-muted-foreground px-3 py-1.5 rounded-lg"
             >
               {item.label}
             </button>
@@ -66,10 +66,19 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" className="rounded-full px-5" onClick={() => navigate("/login")}>
+          <Button
+            variant="outline"
+            size="sm"
+            className="rounded-full px-5 border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-200"
+            onClick={() => navigate("/login")}
+          >
             Login
           </Button>
-          <Button size="sm" className="rounded-full px-5 gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity" onClick={() => navigate("/signup")}>
+          <Button
+            size="sm"
+            className="rounded-full px-5 btn-clickup border-0 text-primary-foreground"
+            onClick={() => navigate("/signup")}
+          >
             Sign Up
           </Button>
         </div>

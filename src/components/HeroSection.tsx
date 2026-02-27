@@ -38,7 +38,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button
                 size="lg"
-                className="gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity text-base px-8 rounded-lg h-12"
+                className="btn-clickup border-0 text-primary-foreground text-base px-8 rounded-full h-12"
                 onClick={() => navigate("/signup")}
               >
                 Get started. It's FREE! <ArrowRight className="ml-2" size={18} />

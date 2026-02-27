@@ -49,11 +49,11 @@ const PricingSection = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`rounded-xl border p-8 flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${
-                plan.highlighted
-                  ? "gradient-border bg-card shadow-xl relative"
-                  : "border-border bg-card"
-              }`}
+              className={`rounded-xl border p-8 flex flex-col card-clickup ${
+                  plan.highlighted
+                    ? "gradient-border bg-card relative"
+                    : "border-border bg-card"
+                }`}
             >
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-bg text-primary-foreground text-xs font-semibold px-4 py-1 rounded-full">
@@ -78,8 +78,8 @@ const PricingSection = () => {
                 onClick={() => plan.name === "Enterprise" ? navigate("/contact") : navigate("/signup")}
                 className={
                   plan.highlighted
-                    ? "gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity w-full rounded-lg"
-                    : "w-full rounded-lg"
+                    ? "btn-clickup border-0 text-primary-foreground w-full rounded-full"
+                    : "w-full rounded-full hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-200"
                 }
                 variant={plan.highlighted ? "default" : "outline"}
               >
