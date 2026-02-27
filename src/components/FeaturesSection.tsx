@@ -11,7 +11,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="section-padding bg-background">
+    <section id="features" className="section-padding" style={{ background: "hsl(226, 44%, 98%)" }}>
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Features</p>
@@ -27,7 +27,7 @@ const FeaturesSection = () => {
           {features.map((f, i) => (
             <div
               key={f.title}
-              className="group relative rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-primary/20 cursor-default"
+              className="group relative rounded-xl border border-border bg-card p-6 card-clickup hover:border-primary/25 cursor-default"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="h-12 w-12 rounded-lg gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
