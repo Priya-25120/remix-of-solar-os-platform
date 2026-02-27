@@ -40,10 +40,10 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Pricing</p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Solar Systems for Every Need
+            Solar System Pricing
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Choose the right solar system for your home or business. No hidden fees.
+            Choose the perfect solar solution for your needs. No hidden fees.
           </p>
         </div>
 

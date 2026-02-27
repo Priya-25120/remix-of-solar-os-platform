@@ -2,12 +2,12 @@ import { Users, FolderKanban, MessageSquare, CheckSquare, Link, BarChart3 } from
 import { useNavigate } from "react-router-dom";
 
 const features = [
-  { icon: Users, title: "Lead Management", description: "Capture, track, and convert solar leads with an intelligent pipeline built for solar sales teams.", route: "/leads" },
-  { icon: FolderKanban, title: "Project Tracking", description: "Monitor every installation from site survey to final inspection with real-time project boards.", route: "/projects" },
-  { icon: MessageSquare, title: "Team Collaboration", description: "Keep your crews, designers, and office staff aligned with built-in chat and file sharing.", route: "/support" },
-  { icon: CheckSquare, title: "Task Management", description: "Assign, prioritize, and track tasks across all your solar projects in one unified view.", route: "/tasks" },
-  { icon: Link, title: "CRM Integration", description: "Connect with your existing tools — sync contacts, deals, and customer data seamlessly.", route: "/customers" },
-  { icon: BarChart3, title: "Analytics Dashboard", description: "Get real-time insights into sales performance, project timelines, and team productivity.", route: "/reports" },
+  { icon: Users, title: "Lead Management", description: "Track and manage solar leads efficiently with a smart pipeline designed for solar sales.", route: "/leads" },
+  { icon: FolderKanban, title: "Project Management", description: "Monitor solar installations from start to finish with real-time project boards and milestones.", route: "/projects" },
+  { icon: MessageSquare, title: "Customer Management", description: "Manage solar customers, contracts, and post-install relationships in one unified place.", route: "/customers" },
+  { icon: CheckSquare, title: "Task Management", description: "Assign and prioritize tasks across all solar projects with a unified team view.", route: "/tasks" },
+  { icon: BarChart3, title: "Analytics", description: "Track solar performance, revenue trends, and team productivity with real-time dashboards.", route: "/reports" },
+  { icon: Link, title: "Team Collaboration", description: "Coordinate your solar team — crews, designers, and office staff — all in sync.", route: "/support" },
 ];
 
 const FeaturesSection = () => {
@@ -19,7 +19,7 @@ const FeaturesSection = () => {
         <div className="text-center mb-16">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Features</p>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Everything You Need to Run Solar
+            Everything You Need to Run Your Solar Business
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Purpose-built tools that help solar companies close more deals and deliver projects faster.
