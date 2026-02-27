@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Sun, Zap, TrendingUp } from "lucide-react";
 import dashboardImg from "@/assets/dashboard-hero.png";
 
 const chipRoutes: Record<string, string> = {
-  "Lead Mgmt": "/leads",
-  "Projects": "/projects",
-  "CRM": "/customers",
-  "AI Agents": "/support",
+  "Lead Tracking": "/leads",
+  "Installations": "/projects",
+  "Solar CRM": "/customers",
   "Scheduling": "/tasks",
   "Analytics": "/reports",
+  "Team Mgmt": "/support",
 };
 
 const HeroSection = () => {
@@ -20,24 +20,25 @@ const HeroSection = () => {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-in">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-xs font-medium text-muted-foreground mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-xs font-semibold text-muted-foreground mb-6">
               <span className="h-2 w-2 rounded-full gradient-bg" />
-              Now in Beta — Try it Free
+              Trusted by 500+ Solar Companies
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-6">
-              Manage Your Solar Business<br />
-              in One <span className="gradient-text">Powerful Platform</span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-6 text-foreground">
+              The Complete Operating<br />
+              System for <span className="gradient-text">Solar Companies</span>
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Solar OS helps solar companies manage leads, installations, projects, and customers — all in one place.
+              Manage solar leads, installations, teams, and customers in one powerful platform. Close more deals. Deliver faster.
             </p>
 
             <div className="space-y-2.5 mb-8">
               {[
-                { bold: "Close more deals.", text: "Intelligent lead pipeline built for solar sales teams." },
-                { bold: "Deliver on time.", text: "Track every installation from survey to final sign-off." },
-                { bold: "Scale with confidence.", text: "Automation & AI built in from day one." },
+                { icon: Sun,        bold: "Close more deals.",    text: "Smart solar lead pipeline with automated follow-ups." },
+                { icon: Zap,        bold: "Deliver on time.",     text: "Track every installation from survey to sign-off." },
+                { icon: TrendingUp, bold: "Scale with ease.",     text: "Built-in AI automation for fast-growing solar teams." },
               ].map((item) => (
                 <div key={item.bold} className="flex items-start gap-2.5">
                   <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
@@ -51,7 +52,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <Button
                 size="lg"
-                className="btn-clickup border-0 text-primary-foreground text-base px-8 rounded-full h-12"
+                className="btn-clickup border-0 text-white text-base px-8 rounded-full h-12 font-semibold"
                 onClick={() => navigate("/signup")}
               >
                 Get Started Free <ArrowRight className="ml-2" size={18} />
@@ -59,15 +60,15 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full h-12 px-8 text-base border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-200"
+                className="rounded-full h-12 px-8 text-base border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-200 font-semibold"
                 onClick={() => navigate("/contact")}
               >
-                Book a Demo
+                Book Demo
               </Button>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
-              {["Lead Mgmt", "Projects", "CRM", "AI Agents", "Scheduling", "Analytics"].map((tag) => (
+              {Object.keys(chipRoutes).map((tag) => (
                 <button
                   key={tag}
                   onClick={() => navigate(chipRoutes[tag])}
@@ -84,7 +85,7 @@ const HeroSection = () => {
               <div className="absolute -inset-4 gradient-bg rounded-2xl opacity-10 blur-2xl" />
               <img
                 src={dashboardImg}
-                alt="Solar OS Dashboard showing project management, analytics, and team collaboration"
+                alt="Solar OS Dashboard — lead management, project tracking and solar analytics"
                 className="relative rounded-xl shadow-2xl border border-border/50 w-full"
               />
             </div>

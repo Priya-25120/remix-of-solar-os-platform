@@ -17,7 +17,7 @@
     --popover-foreground: 240 27% 14%;
 
     /* ClickUp purple primary */
-    --primary: 248 79% 67%;           /* #7B68EE */
+    --primary: 252 75% 63%;           /* #6C5CE7 */
     --primary-foreground: 0 0% 100%;
 
     /* ClickUp light surface */
@@ -40,9 +40,9 @@
 
     --radius: 0.625rem;               /* ClickUp uses slightly tighter radius */
 
-    /* ClickUp gradient tokens */
-    --gradient-start: 248 79% 67%;    /* #7B68EE purple */
-    --gradient-mid: 241 63% 58%;      /* #5B5BD6 indigo */
+    /* ClickUp gradient tokens — #6C5CE7 → #5F6BFF → #3DDC97 → #FF4ECD → #FF7A00 */
+    --gradient-start: 252 75% 63%;    /* #6C5CE7 purple */
+    --gradient-mid: 232 100% 68%;     /* #5F6BFF blue */
     --gradient-end: 313 100% 65%;     /* #FF4ECD pink */
 
     /* ClickUp surface tokens */
@@ -62,10 +62,10 @@
     --sidebar-ring: 248 79% 67%;
 
     /* Shadow tokens */
-    --shadow-card: 0 1px 3px 0 hsl(248 79% 67% / 0.08), 0 4px 16px -2px hsl(248 79% 67% / 0.10);
-    --shadow-card-hover: 0 8px 32px -4px hsl(248 79% 67% / 0.18), 0 2px 8px -2px hsl(248 79% 67% / 0.12);
-    --shadow-btn: 0 2px 8px -1px hsl(248 79% 67% / 0.35);
-    --shadow-btn-hover: 0 6px 20px -2px hsl(248 79% 67% / 0.45);
+    --shadow-card: 0 1px 3px 0 hsl(252 75% 63% / 0.08), 0 4px 16px -2px hsl(252 75% 63% / 0.10);
+    --shadow-card-hover: 0 8px 32px -4px hsl(252 75% 63% / 0.18), 0 2px 8px -2px hsl(252 75% 63% / 0.12);
+    --shadow-btn: 0 2px 8px -1px hsl(252 75% 63% / 0.35);
+    --shadow-btn-hover: 0 6px 20px -2px hsl(252 75% 63% / 0.45);
   }
 }
 
@@ -80,14 +80,14 @@
 }
 
 @layer utilities {
-  /* ClickUp gradient text — purple → indigo → pink */
+  /* ClickUp gradient text — purple → blue → pink */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
       135deg,
-      hsl(248, 79%, 67%),
-      hsl(241, 63%, 58%),
-      hsl(313, 100%, 65%)
+      #6C5CE7,
+      #5F6BFF,
+      #FF4ECD
     );
   }
 
@@ -95,9 +95,10 @@
   .gradient-bg {
     background-image: linear-gradient(
       135deg,
-      hsl(248, 79%, 67%) 0%,
-      hsl(241, 63%, 58%) 50%,
-      hsl(313, 100%, 65%) 100%
+      #6C5CE7 0%,
+      #5F6BFF 40%,
+      #FF4ECD 80%,
+      #FF7A00 100%
     );
   }
 
@@ -105,8 +106,8 @@
   .gradient-bg-subtle {
     background-image: linear-gradient(
       135deg,
-      hsl(248, 79%, 97%),
-      hsl(241, 63%, 97%),
+      hsl(252, 75%, 97%),
+      hsl(232, 100%, 97%),
       hsl(313, 100%, 97%)
     );
   }
@@ -123,7 +124,7 @@
     inset: -2px;
     border-radius: inherit;
     padding: 2px;
-    background: linear-gradient(135deg, hsl(248,79%,67%), hsl(241,63%,58%), hsl(313,100%,65%));
+    background: linear-gradient(135deg, #6C5CE7, #5F6BFF, #FF4ECD, #FF7A00);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -146,14 +147,16 @@
 
   /* ClickUp button primary */
   .btn-clickup {
-    background-image: linear-gradient(135deg, hsl(248,79%,67%) 0%, hsl(241,63%,58%) 50%, hsl(313,100%,65%) 100%);
+    background-image: linear-gradient(135deg, #6C5CE7 0%, #5F6BFF 40%, #FF4ECD 80%, #FF7A00 100%);
     box-shadow: var(--shadow-btn);
-    transition: box-shadow 0.22s ease, transform 0.18s ease, opacity 0.18s ease;
+    transition: box-shadow 0.22s ease, transform 0.18s ease, background-position 0.3s ease;
+    background-size: 200% 200%;
+    background-position: left center;
   }
   .btn-clickup:hover {
     box-shadow: var(--shadow-btn-hover);
     transform: translateY(-2px);
-    opacity: 0.92;
+    background-position: right center;
   }
 
   /* ClickUp nav item hover */
@@ -162,7 +165,7 @@
     transition: color 0.18s ease, background 0.18s ease;
   }
   .nav-item-clickup:hover {
-    background: hsl(248 79% 67% / 0.08);
+    background: hsl(252 75% 63% / 0.08);
     color: hsl(var(--foreground));
   }
 }
