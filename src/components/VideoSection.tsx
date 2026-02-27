@@ -24,11 +24,11 @@ const VideoSection = () => {
         {/* Header */}
         <div className="text-center mb-12 animate-fade-in">
           <p className="text-sm font-semibold gradient-text uppercase tracking-wide mb-3">Demo</p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-foreground">
             See Solar OS in Action
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Watch how Solar OS helps solar companies manage their business.
+            Watch how leading solar companies manage leads, installations, and teams with Solar OS.
           </p>
         </div>
 
@@ -72,7 +72,7 @@ const VideoSection = () => {
 
           {/* Pill tags below video */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {["Lead Management", "Project Tracking", "Team Collaboration", "Analytics"].map((tag) => (
+            {["Lead Tracking", "Installation Management", "Solar CRM", "Project Scheduling", "Solar Analytics"].map((tag) => (
               <span
                 key={tag}
                 className="text-xs font-medium border border-border rounded-full px-3 py-1.5 text-muted-foreground"
