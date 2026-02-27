@@ -3,6 +3,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 import dashboardImg from "@/assets/dashboard-hero.png";
 
+const chipRoutes: Record<string, string> = {
+  "Lead Mgmt": "/leads",
+  "Projects": "/projects",
+  "CRM": "/customers",
+  "AI Agents": "/support",
+  "Scheduling": "/tasks",
+  "Analytics": "/reports",
+  "Docs": "/knowledge-base",
+  "Automations": "/utilities",
+};
+
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -48,9 +59,13 @@ const HeroSection = () => {
 
             <div className="mt-8 flex flex-wrap gap-2">
               {["Lead Mgmt", "Projects", "CRM", "AI Agents", "Scheduling", "Analytics", "Docs", "Automations"].map((tag) => (
-                <span key={tag} className="text-xs font-medium border border-border rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors cursor-default">
+                <button
+                  key={tag}
+                  onClick={() => navigate(chipRoutes[tag])}
+                  className="text-xs font-medium border border-border rounded-full px-3 py-1.5 text-muted-foreground cursor-pointer transition-all duration-200 hover:text-primary hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+                >
                   {tag}
-                </span>
+                </button>
               ))}
             </div>
           </div>
