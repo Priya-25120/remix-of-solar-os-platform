@@ -27,8 +27,7 @@ const CtaSection = () => {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/15 text-base px-8 rounded-full transition-all duration-200"
+                className="btn-clickup border-0 text-primary-foreground text-base px-8 rounded-full h-12"
                 onClick={() => navigate("/contact")}
               >
                 Book a Demo

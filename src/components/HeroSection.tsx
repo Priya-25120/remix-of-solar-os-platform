@@ -10,8 +10,6 @@ const chipRoutes: Record<string, string> = {
   "AI Agents": "/support",
   "Scheduling": "/tasks",
   "Analytics": "/reports",
-  "Docs": "/knowledge-base",
-  "Automations": "/utilities",
 };
 
 const HeroSection = () => {
@@ -58,7 +56,7 @@ const HeroSection = () => {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
-              {["Lead Mgmt", "Projects", "CRM", "AI Agents", "Scheduling", "Analytics", "Docs", "Automations"].map((tag) => (
+              {["Lead Mgmt", "Projects", "CRM", "AI Agents", "Scheduling", "Analytics"].map((tag) => (
                 <button
                   key={tag}
                   onClick={() => navigate(chipRoutes[tag])}
