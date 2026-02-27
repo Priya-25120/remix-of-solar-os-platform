@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
-import solarVideo from "@/assets/solar-demo.mp4";
+import solarVideo from "@/assets/solar-industry.mp4";
 
 const VideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,7 +28,7 @@ const VideoSection = () => {
             See Solar OS in Action
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Watch how Solar OS helps solar companies manage leads, projects, and teams.
+            Watch how Solar OS helps solar companies manage their business.
           </p>
         </div>
 
