@@ -25,15 +25,19 @@ const HeroSection = () => {
               Now in Beta — Try it Free
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-6">
-              Software to<br />
-              replace all <span className="gradient-text">solar tools</span>
+              Manage Your Solar Business<br />
+              in One <span className="gradient-text">Powerful Platform</span>
             </h1>
+
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
+              Solar OS helps solar companies manage leads, installations, projects, and customers — all in one place.
+            </p>
 
             <div className="space-y-2.5 mb-8">
               {[
-                { bold: "Save money.", text: "All Apps, CRM, Projects + 20 more." },
-                { bold: "Save time.", text: "All teams working together with perfect context." },
-                { bold: "Scale faster.", text: "AI Agents & Automation built-in." },
+                { bold: "Close more deals.", text: "Intelligent lead pipeline built for solar sales teams." },
+                { bold: "Deliver on time.", text: "Track every installation from survey to final sign-off." },
+                { bold: "Scale with confidence.", text: "Automation & AI built in from day one." },
               ].map((item) => (
                 <div key={item.bold} className="flex items-start gap-2.5">
                   <Check size={18} className="text-primary mt-0.5 flex-shrink-0" />
@@ -50,9 +54,16 @@ const HeroSection = () => {
                 className="btn-clickup border-0 text-primary-foreground text-base px-8 rounded-full h-12"
                 onClick={() => navigate("/signup")}
               >
-                Get started. It's FREE! <ArrowRight className="ml-2" size={18} />
+                Get Started Free <ArrowRight className="ml-2" size={18} />
               </Button>
-              <p className="text-xs text-muted-foreground mt-2 sm:mt-3">Free forever.<br />No credit card.</p>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full h-12 px-8 text-base border-border hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-200"
+                onClick={() => navigate("/contact")}
+              >
+                Book a Demo
+              </Button>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
