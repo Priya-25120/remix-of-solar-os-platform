@@ -7,31 +7,31 @@ import solar20kw from "@/assets/solar-20kw.jpg";
 
 const products = [
   {
-    name: "5kW Solar System",
-    price: "$4,999",
+    name: "5kW Residential Solar Plan",
+    price: "₹3,49,000",
     description: "Perfect for small homes and starter solar setups.",
     image: solar5kw,
     highlighted: false,
     badge: null,
-    features: ["Up to 5kW peak output", "Basic monitoring", "10-year warranty", "Standard inverter"],
+    features: ["Basic solar monitoring", "10-year warranty", "Standard inverter", "Residential installation support"],
   },
   {
-    name: "10kW Solar System",
-    price: "$8,999",
+    name: "10kW Smart Solar Plan",
+    price: "₹6,99,000",
     description: "Best for medium homes and growing families.",
     image: solar10kw,
     highlighted: true,
     badge: "Most Popular",
-    features: ["Up to 10kW peak output", "Advanced monitoring", "25-year warranty", "Smart inverter", "Battery-ready"],
+    features: ["Advanced monitoring dashboard", "25-year performance warranty", "Smart inverter", "Battery ready system", "Mobile app access"],
   },
   {
-    name: "20kW Solar System",
-    price: "$14,999",
-    description: "Ideal for large homes and commercial use.",
+    name: "25kW Commercial Solar Plan",
+    price: "₹14,50,000",
+    description: "Ideal for large commercial and industrial use.",
     image: solar20kw,
     highlighted: false,
     badge: null,
-    features: ["Up to 20kW peak output", "Pro monitoring suite", "25-year warranty", "Commercial inverter", "Battery storage included"],
+    features: ["Enterprise solar analytics", "Dedicated support manager", "Commercial inverter", "Battery storage included", "SLA guarantee"],
   },
 ];
 
