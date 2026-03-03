@@ -5,11 +5,10 @@ import dashboardImg from "@/assets/dashboard-hero.png";
 
 const chipRoutes: Record<string, string> = {
   "Lead Tracking": "/leads",
-  "Installations": "/projects",
+  "Installation Management": "/projects",
   "Solar CRM": "/customers",
-  "Scheduling": "/tasks",
-  "Analytics": "/reports",
-  "Team Mgmt": "/support",
+  "Project Scheduling": "/tasks",
+  "Solar Analytics": "/reports",
 };
 
 const HeroSection = () => {

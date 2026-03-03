@@ -6,7 +6,7 @@ import VideoSection from "@/components/VideoSection";
 import ProductivitySection from "@/components/ProductivitySection";
 import UseCasesSection from "@/components/UseCasesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
+import WhyChooseSection from "@/components/WhyChooseSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
@@ -22,7 +22,7 @@ const Index = () => {
         <ProductivitySection />
         <UseCasesSection />
         <TestimonialsSection />
-        <PricingSection />
+        <WhyChooseSection />
         <CtaSection />
       </main>
       <Footer />
