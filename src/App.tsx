@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import PricingPage from "./pages/PricingPage";
+import Dashboard from "./pages/Dashboard";
 import ModulePage from "./pages/ModulePage";
 import NotFound from "./pages/NotFound";
 
