@@ -1,15 +1,35 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validate = () => {
+    const e: typeof errors = {};
+    if (!email.trim()) e.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(email)) e.email = "Enter a valid email";
+    if (!password.trim()) e.password = "Password is required";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
+    setLoading(true);
+    // Mock auth delay
+    await new Promise((r) => setTimeout(r, 1200));
+    toast({ title: "Welcome back!", description: "Redirecting to dashboard…" });
+    setTimeout(() => navigate("/dashboard"), 600);
   };
 
   return (
@@ -52,14 +72,16 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="text-sm font-medium mb-1.5 block">Email</label>
-              <Input type="email" placeholder="you@company.com" value={email} onChange={(e) => setEmail(e.target.value)} className="h-11" />
+              <Input type="email" placeholder="you@company.com" value={email} onChange={(e) => { setEmail(e.target.value); setErrors((p) => ({ ...p, email: undefined })); }} className={`h-11 ${errors.email ? "border-destructive" : ""}`} />
+              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
             </div>
             <div>
               <label className="text-sm font-medium mb-1.5 block">Password</label>
-              <Input type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="h-11" />
+              <Input type="password" placeholder="••••••••" value={password} onChange={(e) => { setPassword(e.target.value); setErrors((p) => ({ ...p, password: undefined })); }} className={`h-11 ${errors.password ? "border-destructive" : ""}`} />
+              {errors.password && <p className="text-xs text-destructive mt-1">{errors.password}</p>}
             </div>
-            <Button type="submit" className="w-full h-11 gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity">
-              Log In <ArrowRight className="ml-2" size={16} />
+            <Button type="submit" disabled={loading} className="w-full h-11 gradient-bg border-0 text-primary-foreground hover:opacity-90 transition-opacity">
+              {loading ? <><Loader2 className="mr-2 animate-spin" size={16} /> Logging in…</> : <>Log In <ArrowRight className="ml-2" size={16} /></>}
             </Button>
           </form>
 
