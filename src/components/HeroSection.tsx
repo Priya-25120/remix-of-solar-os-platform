@@ -16,7 +16,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.7, delay: i * 0.1, ease: "easeOut" as const },
   }),
 };
 
@@ -24,7 +24,7 @@ const slideInRight = {
   hidden: { opacity: 0, x: 60, scale: 0.95 },
   visible: {
     opacity: 1, x: 0, scale: 1,
-    transition: { duration: 0.9, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.9, delay: 0.3, ease: "easeOut" as const },
   },
 };
 
