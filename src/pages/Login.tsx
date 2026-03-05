@@ -28,8 +28,8 @@ const Login = () => {
     setLoading(true);
     // Mock auth delay
     await new Promise((r) => setTimeout(r, 1200));
-    toast({ title: "Welcome back!", description: "Redirecting to dashboard…" });
-    setTimeout(() => navigate("/dashboard"), 600);
+    toast({ title: "Welcome back!", description: "Logged in successfully." });
+    setTimeout(() => navigate("/"), 600);
   };
 
   return (

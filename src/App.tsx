@@ -8,9 +8,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Contact from "./pages/Contact";
 import PricingPage from "./pages/PricingPage";
-import Dashboard from "./pages/Dashboard";
-import ModulePage from "./pages/ModulePage";
 import NotFound from "./pages/NotFound";
+import ModulePage from "./pages/ModulePage";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +35,7 @@ const App = () => (
           <Route path="/reports" element={<ModulePage module="reports" />} />
           <Route path="/knowledge-base" element={<ModulePage module="knowledge-base" />} />
           <Route path="/utilities" element={<ModulePage module="utilities" />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
