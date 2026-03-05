@@ -24,13 +24,13 @@ const HeroSection = () => {
               Trusted by 500+ Solar Companies
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-6 text-foreground">
-              The Complete Operating<br />
-              System for <span className="gradient-text">Solar Companies</span>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.08] tracking-tight mb-6 text-foreground">
+              Power Your Solar<br />
+              Business with <span className="gradient-text">Solar OS</span>
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Manage solar leads, installations, teams, and customers in one powerful platform. Close more deals. Deliver faster.
+              Manage solar installations, customers, sales pipelines and analytics in one powerful platform.
             </p>
 
             <div className="space-y-2.5 mb-8">
@@ -85,7 +85,7 @@ const HeroSection = () => {
               <img
                 src={dashboardImg}
                 alt="Solar OS Dashboard — lead management, project tracking and solar analytics"
-                className="relative rounded-xl shadow-2xl border border-border/50 w-full"
+                className="relative rounded-2xl shadow-2xl border border-border/50 w-full"
               />
             </div>
           </div>
