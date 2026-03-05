@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,9 +6,8 @@
 
 @layer base {
   :root {
-    /* ClickUp brand colors — backgrounds */
     --background: 0 0% 100%;
-    --foreground: 240 27% 14%;        /* #1E1E2F */
+    --foreground: 240 27% 14%;
 
     --card: 0 0% 100%;
     --card-foreground: 240 27% 14%;
@@ -16,19 +15,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 27% 14%;
 
-    /* ClickUp purple primary */
-    --primary: 252 75% 63%;           /* #6C5CE7 */
+    /* New ClickUp-style purple primary */
+    --primary: 255 100% 69%;           /* #7B61FF */
     --primary-foreground: 0 0% 100%;
 
-    /* ClickUp light surface */
-    --secondary: 228 33% 97%;         /* #F7F8FC */
+    --secondary: 228 33% 97%;
     --secondary-foreground: 240 27% 14%;
 
     --muted: 228 33% 97%;
-    --muted-foreground: 220 8% 44%;   /* #6B6F76 */
+    --muted-foreground: 220 9% 46%;    /* #6B7280 */
 
-    /* ClickUp pink accent */
-    --accent: 313 100% 65%;           /* #FF4ECD */
+    --accent: 313 100% 67%;            /* #FF5ACD */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -36,36 +33,32 @@
 
     --border: 228 20% 91%;
     --input: 228 20% 91%;
-    --ring: 248 79% 67%;
+    --ring: 255 100% 69%;
 
-    --radius: 0.625rem;               /* ClickUp uses slightly tighter radius */
+    --radius: 0.75rem;
 
-    /* ClickUp gradient tokens — #6C5CE7 → #5F6BFF → #3DDC97 → #FF4ECD → #FF7A00 */
-    --gradient-start: 252 75% 63%;    /* #6C5CE7 purple */
-    --gradient-mid: 232 100% 68%;     /* #5F6BFF blue */
-    --gradient-end: 313 100% 65%;     /* #FF4ECD pink */
+    /* New gradient tokens: #7B61FF → #A259FF → #FF5ACD → #FF7A18 */
+    --gradient-start: 255 100% 69%;
+    --gradient-mid: 275 100% 67%;
+    --gradient-end: 313 100% 67%;
 
-    /* ClickUp surface tokens */
     --surface-elevated: 228 33% 99%;
     --hero-bg: 228 33% 97%;
-
-    /* ClickUp section background */
-    --section-alt: 226 44% 98%;       /* #FAFBFF */
+    --section-alt: 226 44% 98%;
 
     --sidebar-background: 228 33% 97%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 248 79% 67%;
+    --sidebar-primary: 255 100% 69%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 228 33% 93%;
     --sidebar-accent-foreground: 240 27% 14%;
     --sidebar-border: 228 20% 91%;
-    --sidebar-ring: 248 79% 67%;
+    --sidebar-ring: 255 100% 69%;
 
-    /* Shadow tokens */
-    --shadow-card: 0 1px 3px 0 hsl(252 75% 63% / 0.08), 0 4px 16px -2px hsl(252 75% 63% / 0.10);
-    --shadow-card-hover: 0 8px 32px -4px hsl(252 75% 63% / 0.18), 0 2px 8px -2px hsl(252 75% 63% / 0.12);
-    --shadow-btn: 0 2px 8px -1px hsl(252 75% 63% / 0.35);
-    --shadow-btn-hover: 0 6px 20px -2px hsl(252 75% 63% / 0.45);
+    --shadow-card: 0 1px 3px 0 hsl(255 100% 69% / 0.06), 0 4px 16px -2px hsl(255 100% 69% / 0.08);
+    --shadow-card-hover: 0 8px 32px -4px hsl(255 100% 69% / 0.16), 0 2px 8px -2px hsl(255 100% 69% / 0.10);
+    --shadow-btn: 0 2px 8px -1px hsl(255 100% 69% / 0.35);
+    --shadow-btn-hover: 0 6px 20px -2px hsl(255 100% 69% / 0.45);
   }
 }
 
@@ -75,44 +68,44 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
 @layer utilities {
-  /* ClickUp gradient text — purple → blue → pink */
+  /* Updated gradient text — purple → violet → pink */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
       135deg,
-      #6C5CE7,
-      #5F6BFF,
-      #FF4ECD
+      #7B61FF,
+      #A259FF,
+      #FF5ACD
     );
   }
 
-  /* ClickUp primary gradient bg */
+  /* Updated primary gradient bg */
   .gradient-bg {
     background-image: linear-gradient(
       135deg,
-      #6C5CE7 0%,
-      #5F6BFF 40%,
-      #FF4ECD 80%,
-      #FF7A00 100%
+      #7B61FF 0%,
+      #A259FF 35%,
+      #FF5ACD 70%,
+      #FF7A18 100%
     );
   }
 
-  /* ClickUp subtle tinted background */
+  /* Subtle tinted background */
   .gradient-bg-subtle {
     background-image: linear-gradient(
       135deg,
-      hsl(252, 75%, 97%),
-      hsl(232, 100%, 97%),
+      hsl(255, 100%, 97%),
+      hsl(275, 100%, 97%),
       hsl(313, 100%, 97%)
     );
   }
 
-  /* ClickUp gradient border trick */
+  /* Gradient border trick */
   .gradient-border {
     position: relative;
     background-clip: padding-box;
@@ -124,7 +117,7 @@
     inset: -2px;
     border-radius: inherit;
     padding: 2px;
-    background: linear-gradient(135deg, #6C5CE7, #5F6BFF, #FF4ECD, #FF7A00);
+    background: linear-gradient(135deg, #7B61FF, #A259FF, #FF5ACD, #FF7A18);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -135,7 +128,7 @@
     @apply py-20 md:py-28 px-4 md:px-8;
   }
 
-  /* ClickUp card shadow */
+  /* Card shadow */
   .card-clickup {
     box-shadow: var(--shadow-card);
     transition: box-shadow 0.22s ease, transform 0.22s ease;
@@ -145,9 +138,9 @@
     transform: translateY(-4px);
   }
 
-  /* ClickUp button primary */
+  /* Button primary */
   .btn-clickup {
-    background-image: linear-gradient(135deg, #6C5CE7 0%, #5F6BFF 40%, #FF4ECD 80%, #FF7A00 100%);
+    background-image: linear-gradient(135deg, #7B61FF 0%, #A259FF 35%, #FF5ACD 70%, #FF7A18 100%);
     box-shadow: var(--shadow-btn);
     transition: box-shadow 0.22s ease, transform 0.18s ease, background-position 0.3s ease;
     background-size: 200% 200%;
@@ -159,13 +152,13 @@
     background-position: right center;
   }
 
-  /* ClickUp nav item hover */
+  /* Nav item hover */
   .nav-item-clickup {
     position: relative;
     transition: color 0.18s ease, background 0.18s ease;
   }
   .nav-item-clickup:hover {
-    background: hsl(252 75% 63% / 0.08);
+    background: hsl(255 100% 69% / 0.08);
     color: hsl(var(--foreground));
   }
 }

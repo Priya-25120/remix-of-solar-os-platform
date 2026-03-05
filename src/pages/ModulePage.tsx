@@ -23,6 +23,8 @@ const MODULE_CONFIG: Record<string, ModuleConfig> = {
       ["BrightSolar Arizona", "+1 602-555-0303", "Qualified", "Rahul Verma"],
       ["EcoVolt Florida", "+1 305-555-0404", "Negotiation", "Sneha Gupta"],
       ["SolarEdge Nevada", "+1 702-555-0505", "Won", "Vikram Singh"],
+      ["Residential Solar Inquiry", "+1 213-555-0606", "New", "Ravi Kumar"],
+      ["Commercial Rooftop Installation", "+1 714-555-0707", "In Progress", "Maya Singh"],
     ],
   },
   projects: {
@@ -31,9 +33,9 @@ const MODULE_CONFIG: Record<string, ModuleConfig> = {
     color: "from-blue-500 to-indigo-600",
     columns: ["Project Name", "Client", "Status", "Progress %"],
     rows: [
-      ["Residential Solar Installation", "John Smith", "In Progress", "65%"],
-      ["Commercial Solar Plant", "GreenTech Corp", "Planning", "20%"],
-      ["Rooftop Solar Setup", "Michael Johnson", "Completed", "100%"],
+      ["Residential Solar Installation", "BrightSun Energy", "In Progress", "65%"],
+      ["20kW Commercial Solar Project", "SolarGrid Solutions", "Planning", "20%"],
+      ["Rooftop Solar Setup", "EcoVolt Solar", "Completed", "100%"],
       ["Solar Farm Deployment", "SunValley Inc", "On Hold", "40%"],
       ["Industrial Panel Install", "David Williams", "In Progress", "80%"],
     ],
@@ -183,7 +185,7 @@ const ModulePage = ({ module }: ModulePageProps) => {
             <h2 className="text-xl font-semibold text-foreground mb-4">
               {config.rows.length} record{config.rows.length !== 1 ? "s" : ""} found
             </h2>
-            <div className="rounded-xl border border-border bg-card overflow-hidden">
+            <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <Table>
                 <TableHeader>
                   <TableRow>
