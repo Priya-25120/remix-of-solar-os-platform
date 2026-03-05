@@ -49,7 +49,7 @@ const UseCasesSection = () => {
             <div
               key={uc.title}
               onClick={() => navigate(uc.route)}
-              className="group rounded-xl border border-border bg-card p-6 text-center transition-all duration-300 cursor-pointer card-clickup hover:border-primary/20"
+              className="group rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 cursor-pointer card-clickup hover:border-primary/20"
             >
               <div className="h-14 w-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <uc.icon size={28} className="text-white" />

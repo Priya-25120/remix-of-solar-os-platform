@@ -51,7 +51,7 @@ const WhyChooseSection = () => {
           {reasons.map((item, i) => (
             <div
               key={item.title}
-              className="rounded-xl border border-border bg-card p-6 card-clickup"
+              className="rounded-2xl border border-border bg-card p-6 card-clickup"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="h-12 w-12 rounded-lg gradient-bg flex items-center justify-center mb-4">

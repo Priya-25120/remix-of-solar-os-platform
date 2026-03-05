@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
             <div
               key={t.name}
               onClick={() => navigate("/customers")}
-              className="rounded-xl border border-border bg-card p-6 flex flex-col transition-all duration-300 cursor-pointer card-clickup hover:border-primary/20"
+              className="rounded-2xl border border-border bg-card p-6 flex flex-col transition-all duration-300 cursor-pointer card-clickup hover:border-primary/20"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: 5 }).map((_, i) => (

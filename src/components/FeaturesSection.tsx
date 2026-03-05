@@ -64,7 +64,7 @@ const FeaturesSection = () => {
               role="button"
               tabIndex={0}
               onKeyDown={(e) => e.key === "Enter" && navigate(f.route)}
-              className="group relative rounded-xl border border-border bg-card p-6 card-clickup hover:border-primary/25 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="group relative rounded-2xl border border-border bg-card p-6 card-clickup hover:border-primary/25 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-primary/40"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="h-12 w-12 rounded-lg gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
