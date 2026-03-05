@@ -30,8 +30,8 @@ const Signup = () => {
     if (!validate()) return;
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1200));
-    toast({ title: "Account created successfully!", description: "Redirecting to dashboard…" });
-    setTimeout(() => navigate("/dashboard"), 600);
+    toast({ title: "Account created successfully!", description: "Welcome to Solar OS." });
+    setTimeout(() => navigate("/"), 600);
   };
 
   return (
