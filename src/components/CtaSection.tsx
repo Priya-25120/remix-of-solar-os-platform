@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const CtaSection = () => {
   const navigate = useNavigate();
@@ -8,7 +9,13 @@ const CtaSection = () => {
   return (
     <section id="resources" className="section-padding">
       <div className="container mx-auto">
-        <div className="rounded-2xl gradient-bg p-12 md:p-20 text-center relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="rounded-2xl gradient-bg p-12 md:p-20 text-center relative overflow-hidden"
+        >
           <div
             className="absolute inset-0 opacity-10 pointer-events-none"
             style={{ backgroundImage: "radial-gradient(circle at 25% 50%, white 0%, transparent 55%), radial-gradient(circle at 75% 50%, white 0%, transparent 55%)" }}
@@ -39,7 +46,7 @@ const CtaSection = () => {
             </div>
             <p className="text-white/50 text-xs mt-6">Free forever plan available · No credit card required</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
