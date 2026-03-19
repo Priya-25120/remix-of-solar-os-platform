@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 27% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 27% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 27% 14%;
+
+    /* New ClickUp-style purple primary */
+    --primary: 255 100% 69%;           /* #7B61FF */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 228 33% 97%;
+    --secondary-foreground: 240 27% 14%;
+
+    --muted: 228 33% 97%;
+    --muted-foreground: 220 9% 46%;    /* #6B7280 */
+
+    --accent: 313 100% 67%;            /* #FF5ACD */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 228 20% 91%;
+    --input: 228 20% 91%;
+    --ring: 255 100% 69%;
+
+    --radius: 0.75rem;
+
+    /* New gradient tokens: #7B61FF → #A259FF → #FF5ACD → #FF7A18 */
+    --gradient-start: 255 100% 69%;
+    --gradient-mid: 275 100% 67%;
+    --gradient-end: 313 100% 67%;
+
+    --surface-elevated: 228 33% 99%;
+    --hero-bg: 228 33% 97%;
+    --section-alt: 226 44% 98%;
+
+    --sidebar-background: 228 33% 97%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 255 100% 69%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 228 33% 93%;
+    --sidebar-accent-foreground: 240 27% 14%;
+    --sidebar-border: 228 20% 91%;
+    --sidebar-ring: 255 100% 69%;
+
+    --shadow-card: 0 1px 3px 0 hsl(255 100% 69% / 0.06), 0 4px 16px -2px hsl(255 100% 69% / 0.08);
+    --shadow-card-hover: 0 8px 32px -4px hsl(255 100% 69% / 0.16), 0 2px 8px -2px hsl(255 100% 69% / 0.10);
+    --shadow-btn: 0 2px 8px -1px hsl(255 100% 69% / 0.35);
+    --shadow-btn-hover: 0 6px 20px -2px hsl(255 100% 69% / 0.45);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Updated gradient text — purple → violet → pink */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      #7B61FF,
+      #A259FF,
+      #FF5ACD
+    );
+  }
+
+  /* Updated primary gradient bg */
+  .gradient-bg {
+    background-image: linear-gradient(
+      135deg,
+      #7B61FF 0%,
+      #A259FF 35%,
+      #FF5ACD 70%,
+      #FF7A18 100%
+    );
+  }
+
+  /* Subtle tinted background */
+  .gradient-bg-subtle {
+    background-image: linear-gradient(
+      135deg,
+      hsl(255, 100%, 97%),
+      hsl(275, 100%, 97%),
+      hsl(313, 100%, 97%)
+    );
+  }
+
+  /* Gradient border trick */
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, #7B61FF, #A259FF, #FF5ACD, #FF7A18);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-4 md:px-8;
+  }
+
+  /* Card shadow */
+  .card-clickup {
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.22s ease, transform 0.22s ease;
+  }
+  .card-clickup:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  /* Button primary */
+  .btn-clickup {
+    background-image: linear-gradient(135deg, #7B61FF 0%, #A259FF 35%, #FF5ACD 70%, #FF7A18 100%);
+    box-shadow: var(--shadow-btn);
+    transition: box-shadow 0.22s ease, transform 0.18s ease, background-position 0.3s ease;
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  .btn-clickup:hover {
+    box-shadow: var(--shadow-btn-hover);
+    transform: translateY(-2px);
+    background-position: right center;
+  }
+
+  /* Nav item hover */
+  .nav-item-clickup {
+    position: relative;
+    transition: color 0.18s ease, background 0.18s ease;
+  }
+  .nav-item-clickup:hover {
+    background: hsl(255 100% 69% / 0.08);
+    color: hsl(var(--foreground));
+  }
+}
+
+@keyframes mega-menu-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
